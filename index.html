@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SpendSmart</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='40' height='40' rx='12' fill='url(%23g)'/%3E%3Cpath d='M10 26l7-7 5 5 8-10' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='30' cy='14' r='2.6' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232f66f5'/%3E%3Cstop offset='1' stop-color='%236ea2ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='40' height='40' rx='12' fill='url(%23g)'/%3E%3Cpath d='M10 26l7-7 5 5 8-10' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='30' cy='14' r='2.6' fill='white'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0e0b24;--card:#181438;--card2:#211c4a;--ink:#f1efff;--mute:#9a95c7;--line:#2b2660;--p:#8b5cf6;--pk:#ec4899;--good:#34d399;--bad:#fb7185;--grad:linear-gradient(135deg,#8b5cf6,#ec4899);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-:root[data-theme="light"]{--bg:#f1eeff;--card:#fff;--card2:#f5f2ff;--ink:#1d1845;--mute:#6c6894;--line:#e4dffa;--good:#14966a;--bad:#d63d57;color-scheme:light}
+:root{--bg:#0b0d16;--card:#141623;--card2:#1d2030;--ink:#f1f3ff;--mute:#9aa0c7;--line:#262a40;--p:#3b6cff;--pk:#6ea2ff;--good:#34d399;--bad:#fb7185;--grad:linear-gradient(135deg,#2f66f5,#6ea2ff);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#eef2ff;--card:#fff;--card2:#f3f5ff;--ink:#14183a;--mute:#656b94;--line:#dfe4fa;--good:#14966a;--bad:#d63d57;color-scheme:light}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:500 14px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh}
 h1,h2,.brand,.big{font-family:Sora,"Plus Jakarta Sans",system-ui,sans-serif}
@@ -18,19 +18,24 @@ button,input,select{font:inherit;color:inherit}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
 [hidden]{display:none!important}
 /* auth */
-#auth{min-height:100vh;display:grid;place-items:center;padding:20px}
-.acard{width:100%;max-width:400px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
-.acard h1{font-size:22px;margin:18px 0 4px}.acard p{color:var(--mute);margin:0 0 18px}
-.tabs{display:flex;background:var(--card2);border-radius:12px;padding:4px;margin-bottom:16px}
-.tabs button{flex:1;border:0;background:none;padding:9px;border-radius:9px;cursor:pointer;color:var(--mute);font-weight:600}
-.tabs button[aria-selected="true"]{background:var(--card);color:var(--ink)}
-label{display:grid;gap:5px;margin-bottom:12px;color:var(--mute);font-weight:600;font-size:13px}
-input,select{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:11px 12px;width:100%;min-width:0}
-.code{font:700 28px Sora,monospace;letter-spacing:.4em;text-align:center}
+#auth{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#d3d5db 0%,#eceef2 100%);position:relative}
+.corner{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));left:22px;color:#14161f}
+.acard{width:100%;max-width:380px;background:#101010;border-radius:30px;padding:32px 26px;color:#fff;box-shadow:0 20px 60px rgba(40,20,90,.35)}
+.acard h1{font-size:32px;text-align:center;margin:0 0 6px;font-weight:800}
+.acard p{text-align:center;color:#d6d6d6;margin:0 0 20px}
+.acard input{border-radius:999px;background:#262626;border:1px solid transparent;padding:14px 18px;margin-bottom:10px;color:#fff;width:100%}
+.acard input::placeholder{color:#8d8d8d}
+.names{display:flex;gap:8px}
+.acard .btn{background:#2f66f5;border-radius:999px;padding:14px;font-size:15px;margin-top:4px}
+.acard .link{color:#fff;text-decoration:underline;padding:0}
+.acard .code{font:700 28px Sora,monospace;letter-spacing:.4em;text-align:center;padding-left:.4em}
+.acard .row2{display:flex;justify-content:center;gap:18px;margin-top:10px}
 .btn{border:0;background:var(--grad);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;width:100%}
 .btn.sm{width:auto;padding:8px 14px}.btn.alt{background:var(--card2);color:var(--ink)}
-.link{background:none;border:0;color:var(--p);cursor:pointer;font-weight:600;padding:8px 0}
-.msg{min-height:20px;margin:10px 0 0;font-size:13px;color:var(--mute)}.msg.err{color:var(--bad)}
+.link{background:none;border:0;color:var(--p);cursor:pointer;font-weight:600;padding:8px 0;font-size:inherit}
+.msg{min-height:20px;margin:12px 0 0;font-size:13px;color:#cfcfcf;text-align:center}.msg.err{color:#ff8a9b}
+label{display:grid;gap:5px;margin-bottom:12px;color:var(--mute);font-weight:600;font-size:13px}
+input,select{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:11px 12px;width:100%;min-width:0}
 /* app */
 .app{max-width:1200px;margin:0 auto;padding:16px;display:grid;grid-template-columns:210px 1fr;gap:16px}
 .side{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:16px;height:fit-content}
@@ -65,24 +70,25 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 <body>
 
 <div id="auth" hidden>
+ <div class="brand corner"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f66f5"/><stop offset="1" stop-color="#6ea2ff"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg)"/><path d="M10 26l7-7 5 5 8-10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="14" r="2.6" fill="#fff"/></svg>SpendSmart</div>
  <div class="acard">
-  <div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg)"/><path d="M10 26l7-7 5 5 8-10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="14" r="2.6" fill="#fff"/></svg>SpendSmart</div>
   <div id="stepAuth">
-   <h1>Take control of your money</h1><p>Track spending, plan a budget and reach your savings goals.</p>
-   <div class="tabs" role="tablist"><button role="tab" id="tLogin" aria-selected="true">Log in</button><button role="tab" id="tSignup" aria-selected="false">Create account</button></div>
+   <h1 id="aTitle">Log In</h1>
+   <p id="aSwitch"></p>
    <form id="authForm">
-    <label>Email<input id="email" type="email" autocomplete="email" required></label>
-    <label>Password<input id="pw" type="password" autocomplete="current-password" minlength="8" required></label>
+    <div class="names" id="nameRow" hidden><input id="fn" placeholder="First name" autocomplete="given-name" maxlength="30"><input id="ln" placeholder="Last name" autocomplete="family-name" maxlength="30"></div>
+    <input id="email" type="email" placeholder="Email" autocomplete="email" required>
+    <input id="pw" type="password" placeholder="Password (8+ characters)" autocomplete="current-password" minlength="8" required>
     <button class="btn" id="authBtn" type="submit">Log in</button>
    </form>
   </div>
   <div id="stepVerify" hidden>
-   <h1>Check your email</h1><p id="vText">We sent you a code. Enter it below to finish creating your account.</p>
+   <h1>Check your email</h1><p id="vText"></p>
    <form id="verifyForm">
-    <label>Verification code<input id="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required></label>
+    <input id="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="000000" required>
     <button class="btn" type="submit">Create my account</button>
    </form>
-   <button class="link" id="resend" type="button">Send a new code</button> <button class="link" id="back" type="button">Back</button>
+   <div class="row2"><button class="link" id="resend" type="button">Send a new code</button><button class="link" id="back" type="button">Back</button></div>
   </div>
   <p class="msg" id="msg" role="status"></p>
  </div>
@@ -90,7 +96,7 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 
 <div class="app" id="app" hidden>
 <nav class="side" aria-label="Main">
-  <div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="url(#lg)"/><path d="M10 26l7-7 5 5 8-10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="14" r="2.6" fill="#fff"/></svg>SpendSmart</div>
+  <div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f66f5"/><stop offset="1" stop-color="#6ea2ff"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg2)"/><path d="M10 26l7-7 5 5 8-10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="14" r="2.6" fill="#fff"/></svg>SpendSmart</div>
   <button class="nav" data-v="overview" aria-current="true">Overview</button>
   <button class="nav" data-v="spending">Spending</button>
   <button class="nav" data-v="goals">Savings goals</button>
@@ -122,15 +128,15 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 </main>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.0/dist/umd/supabase.js"></script>
 <script>
 (function(){
 /* ====== PASTE YOUR SUPABASE DETAILS HERE ====== */
-var SUPABASE_URL='PASTE_YOUR_PROJECT_URL_HERE';
-var SUPABASE_KEY='PASTE_YOUR_ANON_OR_PUBLISHABLE_KEY_HERE';
+var SUPABASE_URL='https://trspphexbiftcrpkdvjp.supabase.co';
+var SUPABASE_KEY='sb_publishable_OOQFnwe2RFTQZSVGZGAOKQ_4sDqKf3Q';
 /* ================================================ */
 var $=function(i){return document.getElementById(i)};
-var CATS={Housing:'#8b5cf6',Food:'#c4b5fd',Transport:'#4c3fb8',Fun:'#ec4899',Bills:'#34d399',Other:'#94a3b8'};
+var CATS={Housing:'#3b6cff',Food:'#8fb0ff',Transport:'#1f3fb8',Fun:'#f472b6',Bills:'#34d399',Other:'#94a3b8'};
 var NEEDS=['Housing','Food','Transport','Bills'];
 var S={tx:[],goals:[]},pending='',mode='login',sb=null;
 var now=new Date(),curKey=ym(now);
@@ -147,39 +153,47 @@ setTheme(saved);
 $('theme').onclick=function(){setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark')};
 
 /* ---------- auth screens ---------- */
+function withTimeout(p,ms){return Promise.race([p,new Promise(function(_,rej){setTimeout(function(){rej(new Error('timeout'))},ms)})])}
+function fail(e){msg(e&&e.message==='timeout'?'This is taking too long. Check your connection and try again.':'Something went wrong: '+((e&&e.message)||e),1)}
 function showAuth(){$('app').hidden=true;$('auth').hidden=false;$('stepAuth').hidden=false;$('stepVerify').hidden=true;msg('')}
-function showVerify(){$('stepAuth').hidden=true;$('stepVerify').hidden=false;$('vText').textContent='We sent a code to '+pending+'. Enter it below to finish creating your account.';$('code').value='';msg('');$('code').focus()}
-function setMode(m){mode=m;$('tLogin').setAttribute('aria-selected',m==='login');$('tSignup').setAttribute('aria-selected',m==='signup');$('authBtn').textContent=m==='login'?'Log in':'Create account';$('pw').autocomplete=m==='login'?'current-password':'new-password';msg('')}
-$('tLogin').onclick=function(){setMode('login')};$('tSignup').onclick=function(){setMode('signup')};
+function showVerify(){$('stepAuth').hidden=true;$('stepVerify').hidden=false;$('vText').textContent='We sent a code to '+pending+'. Enter it to finish creating your account.';$('code').value='';msg('');$('code').focus()}
+function setMode(m){mode=m;var s=m==='signup';$('aTitle').textContent=s?'Create Account':'Log In';
+  $('aSwitch').innerHTML=s?'Already have an account? <button class="link" id="swBtn" type="button">Log in</button>':'New here? <button class="link" id="swBtn" type="button">Create account</button>';
+  $('swBtn').onclick=function(){setMode(s?'login':'signup')};$('nameRow').hidden=!s;$('authBtn').textContent=s?'Sign up':'Log in';$('pw').autocomplete=s?'new-password':'current-password';msg('')}
+setMode('login');
 $('back').onclick=function(){showAuth()};
 $('authForm').onsubmit=async function(e){
   e.preventDefault();var email=$('email').value.trim(),pw=$('pw').value;msg('One moment…');
-  if(mode==='signup'){
-    if(pw.length<8)return msg('Use at least 8 characters for your password.',1);
-    var r=await sb.auth.signUp({email:email,password:pw});
-    if(r.error)return msg(r.error.message,1);
-    pending=email;showVerify();
-  }else{
-    var l=await sb.auth.signInWithPassword({email:email,password:pw});
-    if(l.error){
-      if(/confirm/i.test(l.error.message)){pending=email;await sb.auth.resend({type:'signup',email:email});showVerify();return}
-      return msg('Email or password is incorrect.',1);
+  try{
+    if(mode==='signup'){
+      if(pw.length<8)return msg('Use at least 8 characters for your password.',1);
+      var r=await withTimeout(sb.auth.signUp({email:email,password:pw,options:{data:{first_name:$('fn').value.trim(),last_name:$('ln').value.trim()}}}),30000);
+      if(r.error)return msg(r.error.message,1);
+      pending=email;showVerify();
+    }else{
+      var l=await withTimeout(sb.auth.signInWithPassword({email:email,password:pw}),30000);
+      if(l.error){
+        if(/confirm/i.test(l.error.message)){pending=email;await sb.auth.resend({type:'signup',email:email});showVerify();return}
+        return msg(l.error.message==='Invalid login credentials'?'Email or password is incorrect.':l.error.message,1);
+      }
+      enter(l.data.user);
     }
-    enter(l.data.user);
-  }
+  }catch(err){fail(err)}
 };
 $('verifyForm').onsubmit=async function(e){
   e.preventDefault();msg('Checking…');
-  var r=await sb.auth.verifyOtp({email:pending,token:$('code').value.replace(/\D/g,''),type:'signup'});
-  if(r.error)return msg('That code is wrong or has expired. Check it or send a new one.',1);
-  enter(r.data.user||r.data.session.user);
+  try{
+    var r=await withTimeout(sb.auth.verifyOtp({email:pending,token:$('code').value.replace(/\D/g,''),type:'signup'}),30000);
+    if(r.error)return msg('That code is wrong or has expired. Check it or send a new one.',1);
+    enter(r.data.user||r.data.session.user);
+  }catch(err){fail(err)}
 };
-$('resend').onclick=async function(){var r=await sb.auth.resend({type:'signup',email:pending});r.error?msg(r.error.message,1):msg('A new code is on its way.')};
+$('resend').onclick=async function(){try{var r=await withTimeout(sb.auth.resend({type:'signup',email:pending}),30000);r.error?msg(r.error.message,1):msg('A new code is on its way.')}catch(err){fail(err)}};
 $('logout').onclick=function(){sb.auth.signOut()};
 
 /* ---------- data ---------- */
 async function enter(user){
-  $('who').textContent=user.email;
+  var nm=(user.user_metadata&&user.user_metadata.first_name)||'';$('who').textContent=(nm?nm+' · ':'')+user.email;
   var a=await Promise.all([sb.from('transactions').select('*').order('date',{ascending:false}),sb.from('goals').select('*').order('created_at')]);
   S.tx=(a[0].data||[]).map(function(t){t.amt=Number(t.amt);return t});
   S.goals=(a[1].data||[]).map(function(g){g.target=Number(g.target);g.saved=Number(g.saved);return g});
@@ -203,10 +217,10 @@ function renderFlow(){
   var m=months().slice(-6);
   if(!m.length){$('flow').innerHTML='<p class="empty">Add your first transaction in Spending to see your money flow.</p>';return}
   var W=Math.max(360,m.length*70),H=190,max=1,d=m.map(function(k){var t=totals(inMonth(k));max=Math.max(max,t.inc,t.exp);return[k,t]});
-  var s='<svg viewBox="0 0 '+W+' '+(H+26)+'" width="100%" role="img" aria-label="Income and spending by month"><defs><linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#6d3fe0"/></linearGradient><linearGradient id="b2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#be3a82"/></linearGradient></defs>';
+  var s='<svg viewBox="0 0 '+W+' '+(H+26)+'" width="100%" role="img" aria-label="Income and spending by month"><defs><linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b6cff"/><stop offset="1" stop-color="#2447c4"/></linearGradient><linearGradient id="b2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb0ff"/><stop offset="1" stop-color="#5f86e8"/></linearGradient></defs>';
   d.forEach(function(x,i){var cx=i*(W/d.length)+(W/d.length)/2,h1=x[1].inc/max*H,h2=x[1].exp/max*H;
     s+='<rect x="'+(cx-17)+'" y="'+(H-h1)+'" width="16" height="'+h1+'" rx="5" fill="url(#b1)"><title>Income '+gbp(x[1].inc)+'</title></rect><rect x="'+(cx+1)+'" y="'+(H-h2)+'" width="16" height="'+h2+'" rx="5" fill="url(#b2)"><title>Spending '+gbp(x[1].exp)+'</title></rect><text x="'+cx+'" y="'+(H+18)+'" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">'+mLabel(x[0])+'</text>'});
-  $('flow').innerHTML=s+'</svg><div class="legend" style="grid-auto-flow:column;justify-content:start;gap:16px"><span><i class="dot" style="background:#8b5cf6"></i>Income</span><span><i class="dot" style="background:#ec4899"></i>Spending</span></div>';
+  $('flow').innerHTML=s+'</svg><div class="legend" style="grid-auto-flow:column;justify-content:start;gap:16px"><span><i class="dot" style="background:#3b6cff"></i>Income</span><span><i class="dot" style="background:#8fb0ff"></i>Spending</span></div>';
 }
 function renderDonut(){
   var o=catTotals(curKey),tot=0,n=Object.keys(o);n.forEach(function(k){tot+=o[k]});
@@ -265,7 +279,7 @@ $('goalList').onclick=async function(e){var id=e.target.dataset.rm;if(!id)return
 /* ---------- start ---------- */
 if(SUPABASE_URL.indexOf('PASTE')===0||!window.supabase){showAuth();msg('Setup needed: add your Supabase URL and key at the top of the script in index.html.',1)}
 else{
-  sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+  sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{lock:function(n,t,f){return f()}}});
   sb.auth.onAuthStateChange(function(ev){if(ev==='SIGNED_OUT')showAuth()});
   sb.auth.getSession().then(function(r){r.data.session?enter(r.data.session.user):showAuth()});
 }
