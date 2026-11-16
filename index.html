@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SpendSmart</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232f66f5'/%3E%3Cstop offset='1' stop-color='%236ea2ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='40' height='40' rx='12' fill='url(%23g)'/%3E%3Cpath d='M10 26l7-7 5 5 8-10' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='30' cy='14' r='2.6' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%231f4fe0%22/%3E%3Cstop offset=%221%22 stop-color=%22%236ea2ff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2248%22 height=%2248%22 rx=%2214%22 fill=%22url%28%23g%29%22/%3E%3Cpath d=%22M7 39L17 29L22 33L36.6 14%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%223%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2240,9.5 38.5,16.7 33.5,12.9%22 fill=%22%23fff%22 stroke=%22%23fff%22 stroke-width=%221.2%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2224,13 34.4,19 34.4,31 24,37 13.6,31 13.6,19%22 fill=%22%231d46c4%22 stroke=%22%23fff%22 stroke-width=%222.4%22 stroke-linejoin=%22round%22/%3E%3Ctext x=%2224%22 y=%2228.6%22 text-anchor=%22middle%22 font-family=%22Sora,Plus Jakarta Sans,Arial,sans-serif%22 font-weight=%22800%22 font-size=%2211%22 fill=%22%23fff%22%3ESS%3C/text%3E%3Ccircle cx=%2237.5%22 cy=%2232%22 r=%224.6%22 fill=%22%23fff%22 stroke=%22%232f66f5%22 stroke-width=%221%22/%3E%3Ctext x=%2237.5%22 y=%2234.5%22 text-anchor=%22middle%22 font-family=%22Arial,sans-serif%22 font-weight=%22800%22 font-size=%227%22 fill=%22%231f4fe0%22%3E%24%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0b0d16;--card:#141623;--card2:#1d2030;--ink:#f1f3ff;--mute:#9aa0c7;--line:#262a40;--p:#3b6cff;--pk:#6ea2ff;--good:#34d399;--bad:#fb7185;--grad:linear-gradient(135deg,#2f66f5,#6ea2ff);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -18,22 +18,35 @@ button,input,select{font:inherit;color:inherit}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
 [hidden]{display:none!important}
 /* auth */
-#auth{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#d3d5db 0%,#eceef2 100%);position:relative}
-.corner{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));left:22px;color:#14161f}
-.acard{width:100%;max-width:380px;background:#101010;border-radius:30px;padding:32px 26px;color:#fff;box-shadow:0 20px 60px rgba(40,20,90,.35)}
-.acard h1{font-size:32px;text-align:center;margin:0 0 6px;font-weight:800}
-.acard p{text-align:center;color:#d6d6d6;margin:0 0 20px}
-.acard input{border-radius:999px;background:#262626;border:1px solid transparent;padding:14px 18px;margin-bottom:10px;color:#fff;width:100%}
-.acard input::placeholder{color:#8d8d8d}
+#auth{min-height:100vh;display:grid;place-items:center;padding:20px;position:relative;overflow:hidden;background:#070a18}
+#auth::before{content:"";position:absolute;inset:-20%;filter:blur(34px);background:
+radial-gradient(40% 40% at 20% 25%,rgba(59,108,255,.80),transparent 70%),
+radial-gradient(35% 35% at 82% 18%,rgba(168,85,247,.55),transparent 70%),
+radial-gradient(45% 45% at 72% 86%,rgba(34,211,238,.45),transparent 70%),
+radial-gradient(35% 35% at 12% 86%,rgba(236,72,153,.38),transparent 70%);animation:drift 20s ease-in-out infinite alternate}
+#auth::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.10) 1px,transparent 1.3px);background-size:28px 28px;-webkit-mask-image:radial-gradient(70% 70% at 50% 50%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 50%,#000,transparent)}
+@keyframes drift{to{transform:translate3d(3%,-4%,0) scale(1.08) rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){#auth::before{animation:none}}
+.corner{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));left:22px;color:#fff;z-index:2}
+.acard{position:relative;z-index:1;width:100%;max-width:400px;padding:36px 28px 28px;color:#fff;text-align:center;border-radius:28px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);-webkit-backdrop-filter:blur(22px) saturate(140%);backdrop-filter:blur(22px) saturate(140%);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.acard h1{font-size:34px;margin:0 0 8px;font-weight:800}
+.acard .lead{margin:0 0 26px;color:#f0f0f0}
+.acard input{background:#fff;color:#111;border:1.5px solid #000;border-radius:10px;padding:13px 14px;margin-bottom:12px;width:100%;font-size:14px}
+.acard input::placeholder{color:#5c5c5c}
 .names{display:flex;gap:8px}
-.acard .btn{background:#2f66f5;border-radius:999px;padding:14px;font-size:15px;margin-top:4px}
-.acard .link{color:#fff;text-decoration:underline;padding:0}
-.acard .code{font:700 28px Sora,monospace;letter-spacing:.4em;text-align:center;padding-left:.4em}
-.acard .row2{display:flex;justify-content:center;gap:18px;margin-top:10px}
+.names[hidden]{display:none}
+.acard .btn{background:#000;color:#fff;border-radius:10px;padding:14px;font-size:15px;margin-top:6px}
+.acard .link{color:#fff;text-decoration:underline;padding:0;font-weight:600}
+.acard .forgot .link,.acard .swap .link{background:#000;color:#fff;text-decoration:none;padding:7px 16px;border-radius:999px;font-size:13px}
+.forgot{text-align:right;margin:-4px 0 6px}.forgot .link{font-size:13px}
+.forgot[hidden]{display:none}
+.acard .swap{margin:18px 0 0;color:#f0f0f0}
+.acard .code{font:700 26px Sora,monospace;letter-spacing:.35em;text-align:center;padding-left:.35em}
+.acard .row2{display:flex;justify-content:center;gap:18px;margin-top:14px}
 .btn{border:0;background:var(--grad);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;width:100%}
 .btn.sm{width:auto;padding:8px 14px}.btn.alt{background:var(--card2);color:var(--ink)}
 .link{background:none;border:0;color:var(--p);cursor:pointer;font-weight:600;padding:8px 0;font-size:inherit}
-.msg{min-height:20px;margin:12px 0 0;font-size:13px;color:#cfcfcf;text-align:center}.msg.err{color:#ff8a9b}
+.msg{min-height:20px;margin:14px 0 0;font-size:13px;color:#f0f0f0;text-align:center}.msg.err{color:#ffb3bd}
 label{display:grid;gap:5px;margin-bottom:12px;color:var(--mute);font-weight:600;font-size:13px}
 input,select{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:11px 12px;width:100%;min-width:0}
 /* app */
@@ -70,24 +83,32 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 <body>
 
 <div id="auth" hidden>
- <div class="brand corner"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f66f5"/><stop offset="1" stop-color="#6ea2ff"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg)"/><path d="M10 26l7-7 5 5 8-10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="14" r="2.6" fill="#fff"/></svg>SpendSmart</div>
+ <div class="brand corner"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f4fe0"/><stop offset="1" stop-color="#6ea2ff"/></linearGradient></defs><rect width="48" height="48" rx="14" fill="url(#lg)"/><path d="M7 39L17 29L22 33L36.6 14" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><polygon points="40,9.5 38.5,16.7 33.5,12.9" fill="#fff" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><polygon points="24,13 34.4,19 34.4,31 24,37 13.6,31 13.6,19" fill="#1d46c4" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><text x="24" y="28.6" text-anchor="middle" font-family="Sora,Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="11" fill="#fff">SS</text><circle cx="37.5" cy="32" r="4.6" fill="#fff" stroke="#2f66f5" stroke-width="1"/><text x="37.5" y="34.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7" fill="#1f4fe0">$</text></svg>SpendSmart</div>
  <div class="acard">
   <div id="stepAuth">
-   <h1 id="aTitle">Log In</h1>
-   <p id="aSwitch"></p>
+   <h1 id="aTitle">Login</h1><p class="lead" id="aLead">Hey there, welcome back</p>
    <form id="authForm">
     <div class="names" id="nameRow" hidden><input id="fn" placeholder="First name" autocomplete="given-name" maxlength="30"><input id="ln" placeholder="Last name" autocomplete="family-name" maxlength="30"></div>
     <input id="email" type="email" placeholder="Email" autocomplete="email" required>
-    <input id="pw" type="password" placeholder="Password (8+ characters)" autocomplete="current-password" minlength="8" required>
+    <input id="pw" type="password" placeholder="Password" autocomplete="current-password" minlength="8" required>
+    <div class="forgot" id="forgotRow"><button class="link" id="forgotBtn" type="button">Forgot password?</button></div>
     <button class="btn" id="authBtn" type="submit">Log in</button>
    </form>
+   <p class="swap" id="aSwitch"></p>
+  </div>
+  <div id="stepForgot" hidden>
+   <h1>Reset password</h1><p class="lead">Enter your email and we will send you a code.</p>
+   <form id="forgotForm"><input id="fEmail" type="email" placeholder="Email" autocomplete="email" required><button class="btn" type="submit">Send code</button></form>
+   <div class="row2"><button class="link" id="backF" type="button">Back to log in</button></div>
+  </div>
+  <div id="stepReset" hidden>
+   <h1>Enter your code</h1><p class="lead" id="rText"></p>
+   <form id="resetForm"><input id="rCode" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="000000" required><input id="rPw" type="password" placeholder="New password (8+ characters)" autocomplete="new-password" minlength="8" required><button class="btn" type="submit">Set new password</button></form>
+   <div class="row2"><button class="link" id="resend2" type="button">Send a new code</button><button class="link" id="backR" type="button">Back</button></div>
   </div>
   <div id="stepVerify" hidden>
-   <h1>Check your email</h1><p id="vText"></p>
-   <form id="verifyForm">
-    <input id="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="000000" required>
-    <button class="btn" type="submit">Create my account</button>
-   </form>
+   <h1>Check your email</h1><p class="lead" id="vText"></p>
+   <form id="verifyForm"><input id="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="000000" required><button class="btn" type="submit">Create my account</button></form>
    <div class="row2"><button class="link" id="resend" type="button">Send a new code</button><button class="link" id="back" type="button">Back</button></div>
   </div>
   <p class="msg" id="msg" role="status"></p>
@@ -96,7 +117,7 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 
 <div class="app" id="app" hidden>
 <nav class="side" aria-label="Main">
-  <div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f66f5"/><stop offset="1" stop-color="#6ea2ff"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg2)"/><path d="M10 26l7-7 5 5 8-10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="14" r="2.6" fill="#fff"/></svg>SpendSmart</div>
+  <div class="brand"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f4fe0"/><stop offset="1" stop-color="#6ea2ff"/></linearGradient></defs><rect width="48" height="48" rx="14" fill="url(#lg2)"/><path d="M7 39L17 29L22 33L36.6 14" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><polygon points="40,9.5 38.5,16.7 33.5,12.9" fill="#fff" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><polygon points="24,13 34.4,19 34.4,31 24,37 13.6,31 13.6,19" fill="#1d46c4" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><text x="24" y="28.6" text-anchor="middle" font-family="Sora,Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="11" fill="#fff">SS</text><circle cx="37.5" cy="32" r="4.6" fill="#fff" stroke="#2f66f5" stroke-width="1"/><text x="37.5" y="34.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7" fill="#1f4fe0">$</text></svg>SpendSmart</div>
   <button class="nav" data-v="overview" aria-current="true">Overview</button>
   <button class="nav" data-v="spending">Spending</button>
   <button class="nav" data-v="goals">Savings goals</button>
@@ -155,13 +176,15 @@ $('theme').onclick=function(){setTheme(root.getAttribute('data-theme')==='dark'?
 /* ---------- auth screens ---------- */
 function withTimeout(p,ms){return Promise.race([p,new Promise(function(_,rej){setTimeout(function(){rej(new Error('timeout'))},ms)})])}
 function fail(e){msg(e&&e.message==='timeout'?'This is taking too long. Check your connection and try again.':'Something went wrong: '+((e&&e.message)||e),1)}
-function showAuth(){$('app').hidden=true;$('auth').hidden=false;$('stepAuth').hidden=false;$('stepVerify').hidden=true;msg('')}
-function showVerify(){$('stepAuth').hidden=true;$('stepVerify').hidden=false;$('vText').textContent='We sent a code to '+pending+'. Enter it to finish creating your account.';$('code').value='';msg('');$('code').focus()}
-function setMode(m){mode=m;var s=m==='signup';$('aTitle').textContent=s?'Create Account':'Log In';
+function step(id){['stepAuth','stepForgot','stepReset','stepVerify'].forEach(function(k){$(k).hidden=k!==id});msg('')}
+function showAuth(){$('app').hidden=true;$('auth').hidden=false;step('stepAuth')}
+function showVerify(){step('stepVerify');$('vText').textContent='We sent a code to '+pending+'. Enter it to finish creating your account.';$('code').value='';$('code').focus()}
+function setMode(m){mode=m;var s=m==='signup';$('aTitle').textContent=s?'Create Account':'Login';$('aLead').textContent=s?'Join SpendSmart and take control of your money':'Hey there, welcome back';
   $('aSwitch').innerHTML=s?'Already have an account? <button class="link" id="swBtn" type="button">Log in</button>':'New here? <button class="link" id="swBtn" type="button">Create account</button>';
-  $('swBtn').onclick=function(){setMode(s?'login':'signup')};$('nameRow').hidden=!s;$('authBtn').textContent=s?'Sign up':'Log in';$('pw').autocomplete=s?'new-password':'current-password';msg('')}
+  $('swBtn').onclick=function(){setMode(s?'login':'signup')};$('nameRow').hidden=!s;$('forgotRow').hidden=s;$('authBtn').textContent=s?'Sign up':'Log in';$('pw').autocomplete=s?'new-password':'current-password';msg('')}
 setMode('login');
-$('back').onclick=function(){showAuth()};
+$('back').onclick=showAuth;$('backF').onclick=showAuth;$('backR').onclick=showAuth;
+$('forgotBtn').onclick=function(){step('stepForgot');$('fEmail').value=$('email').value.trim();$('fEmail').focus()};
 $('authForm').onsubmit=async function(e){
   e.preventDefault();var email=$('email').value.trim(),pw=$('pw').value;msg('One moment…');
   try{
@@ -189,6 +212,29 @@ $('verifyForm').onsubmit=async function(e){
   }catch(err){fail(err)}
 };
 $('resend').onclick=async function(){try{var r=await withTimeout(sb.auth.resend({type:'signup',email:pending}),30000);r.error?msg(r.error.message,1):msg('A new code is on its way.')}catch(err){fail(err)}};
+async function sendReset(email,next){
+  msg('One moment…');
+  try{var r=await withTimeout(sb.auth.resetPasswordForEmail(email),30000);
+    if(r.error)return msg(r.error.message,1);
+    pending=email;
+    if(next){step('stepReset');$('rText').textContent='If '+email+' has an account, a code is on its way.';$('rCode').value='';$('rPw').value='';$('rCode').focus()}
+    else msg('A new code is on its way.');
+  }catch(err){fail(err)}
+}
+$('forgotForm').onsubmit=function(e){e.preventDefault();sendReset($('fEmail').value.trim(),true)};
+$('resend2').onclick=function(){sendReset(pending,false)};
+$('resetForm').onsubmit=async function(e){
+  e.preventDefault();var pw=$('rPw').value;
+  if(pw.length<8)return msg('Use at least 8 characters for your new password.',1);
+  msg('Checking…');
+  try{
+    var v=await withTimeout(sb.auth.verifyOtp({email:pending,token:$('rCode').value.replace(/\D/g,''),type:'recovery'}),30000);
+    if(v.error)return msg('That code is wrong or has expired. Check it or send a new one.',1);
+    var u=await withTimeout(sb.auth.updateUser({password:pw}),30000);
+    if(u.error)return msg(u.error.message,1);
+    enter(u.data.user);
+  }catch(err){fail(err)}
+};
 $('logout').onclick=function(){sb.auth.signOut()};
 
 /* ---------- data ---------- */
