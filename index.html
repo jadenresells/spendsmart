@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="auth-on">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#050a07">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SpendSmart</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%221%22 x2=%221%22 y2=%220%22%3E%3Cstop offset=%220%22 stop-color=%22%2316a34a%22/%3E%3Cstop offset=%221%22 stop-color=%22%2386efac%22/%3E%3C/linearGradient%3E%3Cmask id=%22gm%22 maskUnits=%22userSpaceOnUse%22 x=%220%22 y=%220%22 width=%2248%22 height=%2248%22%3E%3Crect width=%2248%22 height=%2248%22 fill=%22%23fff%22/%3E%3Cpolygon points=%2224,11.3 36.2,18.1 36.2,31.9 24,38.7 11.8,31.9 11.8,18.1%22 fill=%22%23000%22/%3E%3C/mask%3E%3C/defs%3E%3Cg mask=%22url%28%23gm%29%22%3E%3Cpath d=%22M5 41L16 30L22 35L37 13%22 fill=%22none%22 stroke=%22url%28%23g%29%22 stroke-width=%223.2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2240.5,8 39.6,15.3 34,11.5%22 fill=%22url%28%23g%29%22 stroke=%22url%28%23g%29%22 stroke-width=%221.2%22 stroke-linejoin=%22round%22/%3E%3C/g%3E%3Cpolygon points=%2224,12.5 35,18.75 35,31.25 24,37.5 13,31.25 13,18.75%22 fill=%22rgba%2834,197,94,.14%29%22 stroke=%22url%28%23g%29%22 stroke-width=%222.6%22 stroke-linejoin=%22round%22/%3E%3Ctext x=%2224%22 y=%2228.4%22 text-anchor=%22middle%22 font-family=%22Sora,Plus Jakarta Sans,Arial,sans-serif%22 font-weight=%22800%22 font-size=%2211%22 fill=%22%234ade80%22%3ESS%3C/text%3E%3Ccircle cx=%2238%22 cy=%2234%22 r=%225%22 fill=%22url%28%23g%29%22/%3E%3Ctext x=%2238%22 y=%2236.6%22 text-anchor=%22middle%22 font-family=%22Arial,sans-serif%22 font-weight=%22800%22 font-size=%227.5%22 fill=%22%23052e16%22%3E%24%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#070d0a;--card:#0f1a14;--card2:#16251c;--ink:#eefaf2;--mute:#8fb3a0;--line:#1f3a2b;--p:#22c55e;--pk:#86efac;--good:#4ade80;--bad:#fb7185;--grad:linear-gradient(135deg,#15803d,#22c55e);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#070d0a;--card:#0f1a14;--card2:#16251c;--ink:#eefaf2;--mute:#8fb3a0;--line:#1f3a2b;--p:#22c55e;--pk:#86efac;--good:#4ade80;--bad:#fb7185;--grad:linear-gradient(135deg,#15803d,#22c55e);color-scheme:dark}
 :root[data-theme="light"]{--bg:#eefaf2;--card:#fff;--card2:#f1faf4;--ink:#0c2217;--mute:#587a68;--line:#d6ecde;--good:#14966a;--bad:#d63d57;color-scheme:light}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:500 14px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh}
+*{box-sizing:border-box}
+html{background:var(--bg);overscroll-behavior-y:none}html.auth-on,html.auth-on body{background:#050a07}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 14px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;min-height:100dvh;overflow-x:clip}
 h1,h2,.brand,.big{font-family:Sora,"Plus Jakarta Sans",system-ui,sans-serif}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--p);outline-offset:2px}
@@ -18,7 +20,7 @@ button,input,select{font:inherit;color:inherit}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
 [hidden]{display:none!important}
 /* auth */
-#auth{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:96px 20px 40px;position:relative;overflow:hidden;background:#050a07}
+#auth{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:calc(96px + env(safe-area-inset-top,0px)) 20px calc(40px + env(safe-area-inset-bottom,0px));position:relative;overflow:hidden;background:#050a07}
 #auth::before{content:"";position:absolute;inset:-20%;filter:blur(36px);background:
 radial-gradient(40% 40% at 20% 22%,rgba(34,197,94,.70),transparent 70%),
 radial-gradient(35% 35% at 82% 18%,rgba(20,184,166,.50),transparent 70%),
@@ -57,7 +59,7 @@ input,select{background:var(--card2);border:1px solid var(--line);border-radius:
 .arr:hover{background:linear-gradient(135deg,#16a34a,#4ade80);color:#052e16;border-color:transparent;transform:translateY(-50%) scale(1.1)}.arr:active{transform:translateY(-50%) scale(.95)}.arr:focus-visible{outline:2px solid #4ade80;outline-offset:3px}
 .arr.prev{left:-62px}.arr.next{right:-62px}.arr.off{opacity:0;visibility:hidden;pointer-events:none}
 .cdots{display:flex;justify-content:center;gap:8px;position:relative;z-index:1;margin-top:-8px;padding-bottom:30px}.cdots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s}.cdots i.on{background:#4ade80;width:22px;border-radius:8px}
-@media(max-width:560px){.car{width:min(380px,100%)}.arr{background:rgba(0,0,0,.5)}.arr.prev{left:8px}.arr.next{right:8px}}
+@media(hover:none),(pointer:coarse),(max-width:560px){.car{width:min(380px,100%)}.arr{width:38px;height:38px;background:rgba(0,0,0,.5)}.arr svg{width:18px;height:18px}.arr.prev{left:8px}.arr.next{right:8px}.arr:hover{transform:translateY(-50%)}}
 .divider{position:relative;z-index:1;width:min(86%,820px);height:2px;border-radius:2px;background:rgba(255,255,255,.32);box-shadow:0 0 0 1px rgba(255,255,255,.07);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .fc{position:relative;flex:0 0 100%;min-width:0;min-height:410px;border-radius:28px;overflow:hidden;background:radial-gradient(120% 70% at 85% 100%,rgba(34,197,94,.45),transparent 60%),linear-gradient(180deg,#131715,#090c0a);border:1px solid rgba(255,255,255,.12);padding:24px 16px 74px;color:#fff;text-align:center}
 .fc h3{font-family:Sora,sans-serif;font-size:21px;line-height:1.2;color:#f4f1cf;margin:0 0 18px}.fc h3 b{color:#4ade80}
@@ -72,7 +74,7 @@ input,select{background:var(--card2);border:1px solid var(--line);border-radius:
 .opt{border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px;margin-bottom:10px;text-align:left;font-family:Sora,sans-serif;font-weight:800;font-size:22px;color:#6cf59a;background:rgba(255,255,255,.04)}.opt span{font-size:13px;color:#e9e9e9;margin-left:6px}
 .gl{display:flex;justify-content:space-between;align-items:flex-end;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:12px 14px;margin-bottom:10px;background:rgba(255,255,255,.04)}.gl span{color:#6cf59a;font-weight:700;font-size:14px;text-align:left}.gl b{font-family:Sora,sans-serif;font-size:32px;color:#6cf59a;line-height:1}.gl b small{font-size:16px}
 /* app */
-.app{max-width:1200px;margin:0 auto;padding:16px;display:grid;grid-template-columns:210px 1fr;gap:16px}
+.app{max-width:1200px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:210px 1fr;gap:16px}
 .side{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:16px;height:fit-content}
 .side .brand{padding:0 8px 16px}
 .nav{border:0;background:none;text-align:left;padding:10px 12px;border-radius:12px;cursor:pointer;color:var(--mute);font-weight:600}
@@ -126,6 +128,75 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 @media(prefers-reduced-motion:reduce){#ai-fab::after{animation:none}.m,.chips button{animation:none}}
 .rl{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid rgba(255,255,255,.08);font-size:13px}.mk small+.rl{border-top:0}.rl b{font:700 13px "Plus Jakarta Sans",sans-serif}.pos{color:#6cf59a}.neg{color:#fca5a5}
 .stack{display:flex;gap:3px;height:12px;margin:10px 0 4px}.stack i{display:block;border-radius:12px}
+
+/* ===== app v2 ===== */
+:root{--glass:rgba(14,24,18,.66)}
+:root[data-theme="light"]{--glass:rgba(255,255,255,.74)}
+.appbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 90% at 8% -10%,rgba(34,197,94,.13),transparent 60%),radial-gradient(100% 80% at 100% 100%,rgba(20,184,166,.11),transparent 60%)}
+.appbg[hidden]{display:none}
+.appbg::before{content:"";position:absolute;width:540px;height:540px;border-radius:50%;left:-140px;top:18%;background:radial-gradient(circle,rgba(34,197,94,.30),transparent 65%);filter:blur(42px);animation:orb1 24s ease-in-out infinite alternate}
+.appbg i{position:absolute;right:-120px;bottom:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,166,.28),transparent 65%);filter:blur(42px);animation:orb2 28s ease-in-out infinite alternate}
+.appbg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(110,231,150,.30) 1.4px,transparent 1.9px);background-size:34px 34px;animation:dots 26s linear infinite;-webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 90%);mask-image:linear-gradient(180deg,#000 10%,transparent 90%)}
+:root[data-theme="light"] .appbg::after{background-image:radial-gradient(rgba(22,163,74,.32) 1.4px,transparent 1.9px)}
+@keyframes orb1{to{transform:translate(55vw,-14vh) scale(1.25)}}
+@keyframes orb2{to{transform:translate(-50vw,-18vh) scale(1.2)}}
+@keyframes dots{to{background-position:0 -68px}}
+.appbg.still::before,.appbg.still i,.appbg.still::after{animation:none}
+@media(prefers-reduced-motion:reduce){.appbg::before,.appbg i,.appbg::after{animation:none}}
+.app{position:relative;z-index:1}
+.card,.side{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(130%);backdrop-filter:blur(14px) saturate(130%);border-color:rgba(255,255,255,.09)}
+:root[data-theme="light"] .card,:root[data-theme="light"] .side{border-color:rgba(0,0,0,.07)}
+.stats .card,.g2 .card,.g2e .card{transition:transform .3s,box-shadow .3s}
+.stats .card:hover,.g2 .card:hover,.g2e .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.22)}
+.hero{background:var(--grad);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-34px;top:-34px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.15)}
+.hero::before{content:"";position:absolute;right:30px;bottom:-50px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.09)}
+.side{padding:18px 12px;gap:6px}
+.nav{display:flex;align-items:center;gap:11px;padding:11px 13px;transition:background .2s,color .2s,transform .2s}
+.nav svg{width:19px;height:19px;flex:none}.nav .s{display:none}
+.nav:not([aria-current="true"]):hover{background:rgba(34,197,94,.12);color:var(--ink);transform:translateX(3px)}
+.nav[aria-current="true"]{box-shadow:0 10px 24px rgba(34,197,94,.35)}
+#theme{margin-top:6px;font-size:13px}
+.who{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:12px}
+.avatar{width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;background:var(--grad);color:#fff;font:800 15px Sora,sans-serif;display:grid;place-items:center;box-shadow:0 6px 18px rgba(34,197,94,.4)}
+.avatar.big{width:68px;height:68px;font-size:24px;cursor:default}.avatar.sm{width:36px;height:36px;font-size:13px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.iconbtn{width:46px;height:46px;border-radius:15px;border:1px solid var(--line);background:var(--glass);color:var(--ink);display:grid;place-items:center;cursor:pointer;font-size:24px;line-height:1;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .25s,color .25s,transform .25s}
+.iconbtn svg{width:22px;height:22px;transition:transform .5s}
+.iconbtn:hover{background:var(--grad);color:#fff;border-color:transparent}#setBtn:hover svg{transform:rotate(90deg)}
+h1{font-size:28px}
+main section:not([hidden]){animation:up .5s ease both}
+.stats .card{animation:up .6s ease both}.stats .card:nth-child(2){animation-delay:.07s}.stats .card:nth-child(3){animation-delay:.14s}.stats .card:nth-child(4){animation-delay:.21s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){main section,.stats .card{animation:none!important}}
+#limitBox:not(:empty){margin-top:16px}.limh{display:flex;justify-content:space-between;gap:8px;margin-bottom:4px}
+input:focus,select:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(34,197,94,.22);outline:none}
+tbody tr{transition:background .2s}tbody tr:hover{background:rgba(34,197,94,.07)}
+.hide-amt .big,.hide-amt .amt,.hide-amt .legend b,.hide-amt td+td,.hide-amt .limh span{filter:blur(8px)}
+.sd-back{position:fixed;inset:0;z-index:65;background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}.sd-back.show{opacity:1;visibility:visible}
+.sd{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);z-index:70;display:flex;flex-direction:column;background:var(--card);border-left:1px solid var(--line);box-shadow:-24px 0 60px rgba(0,0,0,.4);transform:translateX(105%);visibility:hidden;transition:transform .42s cubic-bezier(.2,.9,.3,1),visibility .42s}.sd.open{transform:none;visibility:visible}
+.sd-h{display:flex;justify-content:space-between;align-items:center;padding:20px 22px 8px}.sd-h h2{margin:0;font:800 22px Sora,sans-serif}
+.sd-tabs{display:flex;gap:6px;padding:8px 22px 0;overflow-x:auto}.sd-tabs button{border:0;background:none;padding:9px 15px;border-radius:999px;color:var(--mute);font-weight:700;cursor:pointer;white-space:nowrap}.sd-tabs button[aria-selected="true"]{background:var(--grad);color:#fff}
+.sd-body{flex:1;overflow-y:auto;padding:18px 22px}.sd-body section:not([hidden]){animation:up .35s ease both}
+.sd-body h3{margin:24px 0 8px;font:700 14px Sora,sans-serif}.sd .btn{margin-top:4px}
+.sd-f{padding:14px 22px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.prof{display:flex;align-items:center;gap:14px;margin-bottom:18px}.prof small{display:block;color:var(--mute)}
+.hint{color:var(--mute);font-size:12.5px;margin:6px 0 12px}
+.sm{min-height:18px;font-size:13px;margin:8px 0 0}.sm.ok{color:var(--good)}.sm.err{color:var(--bad)}
+.qr{width:184px;height:184px;background:#fff;border-radius:14px;padding:8px;display:block;margin:10px 0}
+code{background:var(--card2);padding:2px 6px;border-radius:6px;word-break:break-all}
+.sw{display:flex;align-items:center;gap:10px;color:var(--ink)}.sw input{width:auto}
+.btn.danger{background:linear-gradient(135deg,#be123c,#fb7185)}
+.sd input+.btn,.sd #mfaBody input{margin-top:8px}
+@media(max-width:860px){
+ .side{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));top:auto;flex-direction:row;justify-content:space-around;align-items:stretch;gap:2px;padding:7px;border-radius:22px;z-index:40;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+ .side .brand,.side .who,#theme{display:none}
+ .nav{flex:1;flex-direction:column;gap:3px;font-size:10.5px;padding:8px 4px;align-items:center;justify-content:center}.nav .l{display:none}.nav .s{display:inline}
+ .nav:not([aria-current="true"]):hover{transform:none}
+ .app{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+ #ai-fab{bottom:calc(96px + env(safe-area-inset-bottom,0px))}#ai-panel{bottom:calc(168px + env(safe-area-inset-bottom,0px))}
+ h1{font-size:24px}
+}
 </style>
 </head>
 <body>
@@ -159,6 +230,11 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
    <form id="verifyForm"><input id="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="000000" required><button class="btn" type="submit">Create my account</button></form>
    <div class="row2"><button class="link" id="resend" type="button">Send a new code</button><button class="link" id="back" type="button">Back</button></div>
   </div>
+  <div id="stepMfa" hidden>
+   <h1>Two-step check</h1><p class="lead">Open your authenticator app and enter the 6-digit code it shows.</p>
+   <form id="mfaForm"><input id="mCode" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" required><button class="btn" type="submit">Verify</button></form>
+   <div class="row2"><button class="link" id="mBack" type="button">Back to log in</button></div>
+  </div>
   <p class="msg" id="msg" role="status"></p>
  </div>
  <div class="divider" aria-hidden="true"></div>
@@ -178,21 +254,23 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
  <div class="cdots" id="cdots" aria-hidden="true"></div>
 </div>
 
+<div class="appbg" id="appbg" hidden aria-hidden="true"><i></i></div>
 <div class="app" id="app" hidden>
 <nav class="side" aria-label="Main">
   <div class="brand"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#86efac"/></linearGradient><mask id="lg2m" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><polygon points="24,11.3 36.2,18.1 36.2,31.9 24,38.7 11.8,31.9 11.8,18.1" fill="#000"/></mask></defs><g mask="url(#lg2m)"><path d="M5 41L16 30L22 35L37 13" fill="none" stroke="url(#lg2)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="40.5,8 39.6,15.3 34,11.5" fill="url(#lg2)" stroke="url(#lg2)" stroke-width="1.2" stroke-linejoin="round"/></g><polygon points="24,12.5 35,18.75 35,31.25 24,37.5 13,31.25 13,18.75" fill="rgba(34,197,94,.14)" stroke="url(#lg2)" stroke-width="2.6" stroke-linejoin="round"/><text x="24" y="28.4" text-anchor="middle" font-family="Sora,Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="11" fill="currentColor">SS</text><circle cx="38" cy="34" r="5" fill="url(#lg2)"/><text x="38" y="36.6" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7.5" fill="#052e16">$</text></svg>SpendSmart</div>
-  <button class="nav" data-v="overview" aria-current="true">Overview</button>
-  <button class="nav" data-v="spending">Spending</button>
-  <button class="nav" data-v="goals">Savings goals</button>
-  <button class="nav" data-v="budget">Budget calculator</button>
-  <button class="nav" data-v="months">Monthly summaries</button>
+  <button class="nav" data-v="overview" aria-current="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span class="l">Overview</span><span class="s">Home</span></button>
+  <button class="nav" data-v="spending"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h15a3 3 0 013 3v8a3 3 0 01-3 3H6a3 3 0 01-3-3V7z"/><path d="M3 7l12-4v4"/><circle cx="17" cy="14" r="1.2"/></svg><span class="l">Spending</span><span class="s">Spend</span></button>
+  <button class="nav" data-v="goals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg><span class="l">Savings goals</span><span class="s">Goals</span></button>
+  <button class="nav" data-v="budget"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 109 9h-9z"/><path d="M15 3.5A9 9 0 0120.5 9H15z"/></svg><span class="l">Budget calculator</span><span class="s">Budget</span></button>
+  <button class="nav" data-v="months"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><span class="l">Monthly summaries</span><span class="s">Months</span></button>
   <button class="nav" id="theme">Light mode</button>
-  <div class="who"><span id="who"></span><br><button class="link" id="logout" type="button">Log out</button></div>
+  <div class="who"><button class="avatar sm" id="av" type="button" aria-label="Open settings"></button><span id="who"></span><button class="link" id="logout" type="button">Log out</button></div>
 </nav>
 <main>
-  <header><h1 id="title">Overview</h1><p class="sub" id="subtitle"></p></header>
+  <header class="top"><div><h1 id="title">Overview</h1><p class="sub" id="subtitle"></p></div><div class="tools"><button class="iconbtn" id="setBtn" type="button" aria-label="Open settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg></button></div></header>
   <section id="v-overview">
     <div class="stats" id="stats"></div>
+    <div id="limitBox"></div>
     <div class="g2" style="margin-top:16px"><div class="card"><h2>Money flow</h2><div class="scroll" id="flow"></div></div><div class="card"><h2>This month by category</h2><div id="donut"></div></div></div>
     <div class="g2e" style="margin-top:16px"><div class="card"><h2>Recent transactions</h2><div id="recent"></div></div><div class="card"><h2>Savings goals</h2><div id="goalsMini"></div></div></div>
   </section>
@@ -212,6 +290,48 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 </main>
 </div>
 
+<div class="sd-back" id="sdBack"></div>
+<aside class="sd" id="sd" role="dialog" aria-modal="true" aria-label="Settings">
+ <div class="sd-h"><h2>Settings</h2><button class="iconbtn" id="sdX" type="button" aria-label="Close settings">&times;</button></div>
+ <div class="sd-tabs" role="tablist"><button type="button" data-t="profile" aria-selected="true">Profile</button><button type="button" data-t="security" aria-selected="false">Security</button><button type="button" data-t="prefs" aria-selected="false">Preferences</button><button type="button" data-t="data" aria-selected="false">Data</button></div>
+ <div class="sd-body">
+  <section data-p="profile">
+   <div class="prof"><div class="avatar big" id="avBig"></div><div><b id="pName"></b><small id="pMail"></small><small id="pSince"></small></div></div>
+   <form id="fProfile"><label>First name<input id="sFn" maxlength="30" autocomplete="given-name"></label><label>Last name<input id="sLn" maxlength="30" autocomplete="family-name"></label><button class="btn" type="submit">Save name</button></form>
+   <h3>Change email</h3>
+   <form id="fEmail2"><label>New email address<input id="sEm" type="email" required autocomplete="email"></label><button class="btn" type="submit">Change email</button><p class="hint">We email a confirmation link to your current and your new address. Your email changes once both are confirmed.</p></form>
+   <p class="sm" id="pMsg"></p>
+  </section>
+  <section data-p="security" hidden>
+   <h3 style="margin-top:0">Change password</h3>
+   <form id="fPw"><label>New password<input id="sPw" type="password" minlength="8" required autocomplete="new-password"></label><label>Confirm new password<input id="sPw2" type="password" minlength="8" required autocomplete="new-password"></label><button class="btn" type="submit">Update password</button></form>
+   <h3>Two-factor authentication (2FA)</h3>
+   <p class="hint">Add a second step when you log in, using an authenticator app such as Google Authenticator, Microsoft Authenticator or Authy.</p>
+   <div id="mfaBody"></div>
+   <h3>Sessions</h3>
+   <button class="btn alt" id="outAll" type="button">Log out of all devices</button>
+   <p class="sm" id="secMsg"></p>
+  </section>
+  <section data-p="prefs" hidden>
+   <label>Theme<select id="sTheme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+   <label>Currency<select id="sCur"><option value="£">British pound (£)</option><option value="$">US dollar ($)</option><option value="€">Euro (€)</option></select></label>
+   <label>Monthly spending limit<input id="sLim" type="number" min="0" step="10" placeholder="Optional"></label>
+   <label class="sw"><input type="checkbox" id="sHide"> Hide amounts (blur the numbers)</label>
+   <label class="sw"><input type="checkbox" id="sAnim"> Animated background</label>
+   <button class="btn" id="savePrefs" type="button">Save preferences</button>
+   <p class="sm" id="prMsg"></p>
+  </section>
+  <section data-p="data" hidden>
+   <h3 style="margin-top:0">Your data</h3>
+   <button class="btn alt" id="exp" type="button">Download transactions (CSV)</button>
+   <h3>Danger zone</h3>
+   <p class="hint">Delete all your transactions and savings goals. This cannot be undone. Deleting the account itself is not available in the app yet.</p>
+   <input id="delConf" placeholder="Type DELETE to confirm" autocomplete="off"><button class="btn danger" id="delData" type="button">Delete all my data</button>
+   <p class="sm" id="dtMsg"></p>
+  </section>
+ </div>
+ <div class="sd-f"><button class="btn alt" id="sdOut" type="button">Log out</button></div>
+</aside>
 <button id="ai-fab" type="button" aria-label="Open SpendSmart assistant" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.3L21 10.5l-6.8 2.2L12 19l-2.2-6.3L3 10.5l6.8-2.2z"/><path d="M19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z" opacity=".8"/></svg></button>
 <section id="ai-panel" role="dialog" aria-label="SpendSmart assistant"><div class="ai-h"><span>✦ SpendSmart Assistant</span><button type="button" id="ai-x" aria-label="Close">×</button></div><div class="ai-b" id="ai-b" aria-live="polite"></div><form class="ai-f" id="ai-f"><input id="ai-i" placeholder="Ask about SpendSmart…" maxlength="160" autocomplete="off"><button type="submit">Send</button></form></section>
 <div id="warn" role="alertdialog" aria-labelledby="warnT"><div class="wbox"><h2 id="warnT">WARNING</h2><p>Please do not break the SpendSmart guidelines. Offensive or abusive language is not allowed here. Keep it respectful.</p><button type="button" id="warnOk">I understand</button></div></div>
@@ -236,20 +356,20 @@ var KB=[
 [/(who (made|built|created|designed|developed|coded|owns|runs)|made (you|this|the (site|website|app))|created (you|this)|built (you|this))/,"I'm SpendSmart's assistant, and this website was built by its creator. I don't have more details than that, but I'm happy to help you get the most out of it."],
 [/(are you (an? )?(ai|bot|robot|real|human|person)|chatgpt|claude|gemini|openai)/,"I'm an automated assistant built into SpendSmart, not a person. I answer questions about using the site."],
 [/(you('re| are) (great|good|cool|smart|awesome|helpful|amazing|the best)|love you|nice one|well done)/,"Thank you, that's kind of you to say! Is there anything else about SpendSmart I can help with?"],
-[/(thanks|thank you|cheers|ta\b)/,"You're welcome! Ask me anything else about SpendSmart."],
+[/(thanks|thank you|cheers|\bta\b)/,"You're welcome! Ask me anything else about SpendSmart."],
 [/(bye|goodbye|see you|good night|cya|talk later)/,"Goodbye! Come back any time you have a question."],
-[/(forgot|forget|reset|lost|change).*password|password.*(forgot|reset|lost)/,"On the login page, click Forgot password?, enter your email, then type the 6-digit code we send you and choose a new password. If you're logged in, log out first."],
+[/(forgot|forget|reset|lost|change).*password|password.*(forgot|reset|lost)/,"On the login page, click Forgot password?, enter your email, then type the 6-digit code we send you and choose a new password. To change it while logged in, open Settings (gear icon) and choose Security."],
 [/(code|email|verification).*(not|n't|never|didn|haven|missing|arriv|receiv|come|got|slow|late)|(not|n't|never).*(code|email)/,"Check your Spam and Promotions folders and give it a couple of minutes. Press Send a new code only once, because only the newest code works."],
 [/(sign ?up|create.*account|register|join|make.*account)/,"Choose Create Account, enter your name, email and a password of 8+ characters, then type the 6-digit code we email you to finish creating your account."],
-[/(delete|close|remove).*(account|profile)|cancel (my )?account/,"There isn't a delete-account option in SpendSmart yet."],
-[/(change|update).*(email|username|my name)/,"Changing your email or name isn't possible in the app yet."],
+[/(delete|close|remove).*(account|profile)|cancel (my )?account/,"In Settings, under Data, you can delete all your transactions and goals. Deleting the account itself isn't available in the app yet."],
+[/(change|update).*(email|username|my name)/,"Click the gear icon to open Settings. Under Profile you can change your name or email."],
 [/(log ?out|sign ?out)/,"Use the Log out button at the bottom of the sidebar."],
 [/(log ?in|sign ?in|cant get in|can't get in)/,"Enter your email and password on the login page. If you've forgotten your password, use Forgot password?."],
 [/(what|whats|what's).*(spend ?smart)|about (this|the) (site|app|website)|what is this|what does (this|it) do|what (is|does) it do/,"SpendSmart is a money management website. You can track what you earn and spend, plan a monthly budget, set savings goals and see a summary of every month, all in one dashboard."],
 [/how (do|can|to|should).*(use|start|begin|get started)|getting started|tutorial|where do i start/,"1. Create an account and confirm it with the emailed code.\n2. Add your income and spending in Spending.\n3. Create goals under Savings goals.\n4. Plan your month in the Budget calculator.\n5. Check Overview and Monthly summaries to see how you're doing."],
 [/(edit|change|update|fix|correct).*(transaction|amount|entry|expense)/,"You can't edit a transaction yet. Delete it with the Delete button in Spending and add it again with the right details."],
 [/(add|record|log|track|enter|delete|remove).*(transaction|spend|spending|expense|income|payment)|transaction/,"Open Spending, type what it was, the amount, choose Expense or Income, pick a category and date, then press Add transaction. Use Delete next to a transaction to remove it."],
-[/(export|download|backup|csv|spreadsheet)/,"Exporting your data isn't available yet."],
+[/(export|download|backup|csv|spreadsheet)/,"Open Settings (the gear icon), go to Data and press Download transactions (CSV)."],
 [/(emergency fund|rainy day)/,"An emergency fund is money set aside for surprises. A common guideline is 3 to 6 months of essential spending, and you can track it as a goal in SpendSmart. This is general guidance, not financial advice."],
 [/(how much (should|do) i save|saving rate|save per month|how much to save)/,"A common rule of thumb is to put about 20% of your take-home pay into savings, as in the 50/30/20 split. Everyone's situation is different, and this isn't financial advice."],
 [/(tips|ideas|ways|how).*(save|spend less|cut costs|cut spending)|save money/,"Some simple habits: track every purchase, look at your biggest spending category each month, set a savings goal with a target, and plan your month in the Budget calculator before it starts."],
@@ -261,9 +381,11 @@ var KB=[
 [/(categories|category)/,"The categories are Housing, Food, Transport, Fun, Bills and Other. Pick one when you add a transaction and it appears in your charts."],
 [/(chart|overview|dashboard|money flow|donut)/,"Overview shows your balance, income, spending, a money flow chart for recent months, this month's spending by category, recent transactions and your goals."],
 [/(empty|nothing|no data|blank|not showing|doesn'?t show|no chart)/,"Charts and summaries fill in once you add transactions. Go to Spending and add your first income and expense."],
+[/(2fa|two.?factor|two.?step|authenticator|mfa)/,"You can turn on 2FA in Settings (gear icon) under Security. Scan the QR code with an authenticator app, then enter the 6-digit code it shows."],
+[/(setting|settings|preferences|profile)/,"Click the gear icon at the top right to open Settings. You can change your name, email and password, turn on 2FA, pick your currency and theme, set a monthly spending limit, or download your data."],
 [/(private|privacy|safe|secure|security|data|who can see)/,"Your transactions and goals are saved to your own account, and the database rules stop other users from seeing them. Never share your password or codes with anyone."],
-[/(dark|light) ?mode|theme|colou?r/,"Use the Light mode / Dark mode button in the sidebar to switch themes."],
-[/(currency|pounds|dollars|euros?|£)/,"SpendSmart shows all amounts in pounds (£)."],
+[/(dark|light) ?mode|theme|colou?r/,"Switch themes with the Light mode / Dark mode button in the sidebar, or in Settings under Preferences."],
+[/(currency|pounds|dollars|euros?|£)/,"You can choose pounds, dollars or euros in Settings, under Preferences."],
 [/(phone|mobile|iphone|android|tablet|app store)/,"SpendSmart works in your phone's web browser. There isn't a separate app."],
 [/(cost|price|pricing|free|subscription|how much does)/,"I don't have any pricing information. SpendSmart doesn't ask for payment details anywhere in the app."],
 [/(bug|problem|broken|not working|error|contact|support)/,"Sorry about that. Try refreshing the page, or log out and back in. If it keeps happening, please contact the person who runs the site."],
@@ -309,11 +431,11 @@ var SUPABASE_KEY='sb_publishable_OOQFnwe2RFTQZSVGZGAOKQ_4sDqKf3Q';
 var $=function(i){return document.getElementById(i)};
 var CATS={Housing:'#22c55e',Food:'#86efac',Transport:'#15803d',Fun:'#f472b6',Bills:'#38bdf8',Other:'#94a3b8'};
 var NEEDS=['Housing','Food','Transport','Bills'];
-var S={tx:[],goals:[]},pending='',mode='login',sb=null;
+var CUR='£',LIM=0,U=null,mfaId=null,S={tx:[],goals:[]},pending='',mode='login',sb=null;
 var now=new Date(),curKey=ym(now);
 function ym(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function gbp(n,d){return (n<0?'-':'')+'£'+Math.abs(n).toLocaleString('en-GB',{minimumFractionDigits:d?2:0,maximumFractionDigits:2})}
+function gbp(n,d){return (n<0?'-':'')+CUR+Math.abs(n).toLocaleString('en-GB',{minimumFractionDigits:d?2:0,maximumFractionDigits:2})}
 function msg(t,err){var m=$('msg');m.textContent=t||'';m.className='msg'+(err?' err':'')}
 
 /* ---------- theme ---------- */
@@ -326,8 +448,10 @@ $('theme').onclick=function(){setTheme(root.getAttribute('data-theme')==='dark'?
 /* ---------- auth screens ---------- */
 function withTimeout(p,ms){return Promise.race([p,new Promise(function(_,rej){setTimeout(function(){rej(new Error('timeout'))},ms)})])}
 function fail(e){msg(e&&e.message==='timeout'?'This is taking too long. Check your connection and try again.':'Something went wrong: '+((e&&e.message)||e),1)}
-function step(id){['stepAuth','stepForgot','stepReset','stepVerify'].forEach(function(k){$(k).hidden=k!==id});msg('')}
-function showAuth(){$('app').hidden=true;$('auth').hidden=false;step('stepAuth')}
+function step(id){['stepAuth','stepForgot','stepReset','stepVerify','stepMfa'].forEach(function(k){$(k).hidden=k!==id});msg('')}
+function showAuth(){U=null;document.documentElement.classList.add('auth-on');$('appbg').hidden=true;$('app').hidden=true;$('auth').hidden=false;closeSet();step('stepAuth')}
+async function mfaFactorNeeded(){var a=await sb.auth.mfa.getAuthenticatorAssuranceLevel();if(a.data&&a.data.nextLevel==='aal2'&&a.data.currentLevel!=='aal2'){var f=await sb.auth.mfa.listFactors();var t=f.data&&f.data.totp&&f.data.totp[0];return t?t.id:null}return null}
+async function afterLogin(u){var f=await mfaFactorNeeded();if(f){mfaId=f;document.documentElement.classList.add('auth-on');$('app').hidden=true;$('auth').hidden=false;step('stepMfa');$('mCode').value='';$('mCode').focus();return}enter(u)}
 function showVerify(){step('stepVerify');$('vText').textContent='We sent a code to '+pending+'. Enter it to finish creating your account.';$('code').value='';$('code').focus()}
 function setMode(m){mode=m;var s=m==='signup';$('aTitle').textContent=s?'Create Account':'Login';$('aLead').textContent=s?'Join SpendSmart and take control of your money':'Hey there, welcome back';
   $('aSwitch').innerHTML=s?'Already have an account? <button class="link" id="swBtn" type="button">Log in</button>':'New here? <button class="link" id="swBtn" type="button">Create account</button>';
@@ -350,7 +474,7 @@ $('authForm').onsubmit=async function(e){
         if(/confirm/i.test(l.error.message)){pending=email;await sb.auth.resend({type:'signup',email:email});showVerify();return}
         return msg(l.error.message==='Invalid login credentials'?'Email or password is incorrect.':l.error.message,1);
       }
-      enter(l.data.user);
+      await afterLogin(l.data.user);
     }
   }catch(err){fail(err)}
 };
@@ -383,18 +507,24 @@ $('resetForm').onsubmit=async function(e){
     if(v.error)return msg('That code is wrong or has expired. Check it or send a new one.',1);
     var u=await withTimeout(sb.auth.updateUser({password:pw}),30000);
     if(u.error)return msg(u.error.message,1);
-    enter(u.data.user);
+    afterLogin(u.data.user);
   }catch(err){fail(err)}
 };
+$('mfaForm').onsubmit=async function(e){e.preventDefault();msg('Checking…');
+  try{var c=await withTimeout(sb.auth.mfa.challenge({factorId:mfaId}),30000);if(c.error)return msg(c.error.message,1);
+    var v=await withTimeout(sb.auth.mfa.verify({factorId:mfaId,challengeId:c.data.id,code:$('mCode').value.replace(/\D/g,'')}),30000);
+    if(v.error)return msg('That code is wrong or has expired. Use the newest code from your app.',1);
+    var u=await sb.auth.getUser();enter(u.data.user)}catch(err){fail(err)}};
+$('mBack').onclick=function(){sb.auth.signOut()};
 $('logout').onclick=function(){sb.auth.signOut()};
 
 /* ---------- data ---------- */
 async function enter(user){
-  var nm=(user.user_metadata&&user.user_metadata.first_name)||'';$('who').textContent=(nm?nm+' · ':'')+user.email;
+  U=user;paintUser();applyPrefs();
   var a=await Promise.all([sb.from('transactions').select('*').order('date',{ascending:false}),sb.from('goals').select('*').order('created_at')]);
   S.tx=(a[0].data||[]).map(function(t){t.amt=Number(t.amt);return t});
   S.goals=(a[1].data||[]).map(function(g){g.target=Number(g.target);g.saved=Number(g.saved);return g});
-  $('auth').hidden=true;$('app').hidden=false;$('email').value='';$('pw').value='';
+  document.documentElement.classList.remove('auth-on');$('auth').hidden=true;$('appbg').hidden=false;$('app').hidden=false;$('email').value='';$('pw').value='';
   show('overview');renderAll();
 }
 function inMonth(k){return S.tx.filter(function(t){return t.date.slice(0,7)===k})}
@@ -408,7 +538,10 @@ function change(a,b){return b?((a-b)/b*100).toFixed(1)+'% vs last month':'First 
 function renderStats(){
   var m=months(),i=m.indexOf(curKey),cur=totals(inMonth(curKey)),prev=totals(inMonth(m[i-1]||'x')),all=totals(S.tx),sv=S.goals.reduce(function(a,g){return a+g.saved},0);
   var c=[['Balance',all.inc-all.exp,'All time'],['Income',cur.inc,change(cur.inc,prev.inc)],['Spending',cur.exp,change(cur.exp,prev.exp)],['Saved for goals',sv,S.goals.length+(S.goals.length===1?' goal':' goals')]];
-  $('stats').innerHTML=c.map(function(x,k){return '<div class="card'+(k===0?' hero':'')+'"><span>'+x[0]+'</span><b class="big">'+gbp(x[1])+'</b><small>'+x[2]+'</small></div>'}).join('');
+  $('stats').innerHTML=c.map(function(x,k){return '<div class="card'+(k===0?' hero':'')+'"><span>'+x[0]+'</span><b class="big" data-v="'+x[1]+'">'+gbp(x[1])+'</b><small>'+x[2]+'</small></div>'}).join('');
+  document.querySelectorAll('#stats .big').forEach(countUp);
+  var lb=$('limitBox');
+  if(LIM>0){var pc=Math.round(cur.exp/LIM*100);lb.innerHTML='<div class="card lim"><div class="limh"><b>Monthly spending limit</b><span>'+gbp(cur.exp)+' of '+gbp(LIM)+'</span></div><div class="bar"><i style="width:'+Math.min(100,pc)+'%;'+(pc>=100?'background:var(--bad)':pc>=80?'background:#f59e0b':'')+'"></i></div><small class="sub">'+(pc>=100?"You're over your limit this month.":pc>=80?'Close to your limit: '+pc+'% used.':pc+'% used. Nice and steady.')+'</small></div>'}else lb.innerHTML='';
 }
 function renderFlow(){
   var m=months().slice(-6);
@@ -434,7 +567,7 @@ function renderLists(){
   $('recent').innerHTML=S.tx.slice(0,5).map(function(t){return txRow(t)}).join('')||'<p class="empty">Nothing here yet.</p>';
   $('txList').innerHTML=S.tx.slice(0,40).map(function(t){return txRow(t,1)}).join('')||'<p class="empty">No transactions yet. Add your first one above.</p>';
   $('goalsMini').innerHTML=S.goals.map(goalBar).join('')||'<p class="empty">No goals yet.</p>';
-  $('goalList').innerHTML=S.goals.map(function(g){return goalBar(g)+'<form class="inline" data-add="'+g.id+'" style="margin-top:-6px"><input type="number" name="v" min="1" step="1" placeholder="Add £" aria-label="Amount to add to '+esc(g.name)+'" required><button class="btn sm" type="submit">Add to goal</button><button class="btn sm alt" type="button" data-rm="'+g.id+'">Remove goal</button></form>'}).join('')||'<p class="empty">No goals yet. Name something you are saving for above.</p>';
+  $('goalList').innerHTML=S.goals.map(function(g){return goalBar(g)+'<form class="inline" data-add="'+g.id+'" style="margin-top:-6px"><input type="number" name="v" min="1" step="1" placeholder="Add '+CUR+'" aria-label="Amount to add to '+esc(g.name)+'" required><button class="btn sm" type="submit">Add to goal</button><button class="btn sm alt" type="button" data-rm="'+g.id+'">Remove goal</button></form>'}).join('')||'<p class="empty">No goals yet. Name something you are saving for above.</p>';
 }
 function renderCalc(){
   var inc=+$('cIncome').value||0,n=+$('cNeeds').value||0,w=+$('cWants').value||0,sv=+$('cSave').value||0,o=catTotals(curKey),na=0,wa=0;
@@ -450,7 +583,9 @@ function renderAll(){renderStats();renderFlow();renderDonut();renderLists();rend
 
 /* ---------- navigation ---------- */
 var T={overview:['Overview','Your money at a glance'],spending:['Spending','Track every pound in and out'],goals:['Savings goals','Save towards what matters'],budget:['Budget calculator','Plan your month before it starts'],months:['Monthly summaries','See how each month went']};
-function show(v){Object.keys(T).forEach(function(k){$('v-'+k).hidden=k!==v});document.querySelectorAll('.nav[data-v]').forEach(function(b){b.setAttribute('aria-current',b.dataset.v===v)});$('title').textContent=T[v][0];$('subtitle').textContent=T[v][1]}
+function countUp(el){var v=+el.dataset.v;if(!isFinite(v)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var t0=null;function f(t){if(t0===null)t0=t;var p=Math.min(1,(t-t0)/700);el.textContent=gbp(v*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+function greet(){var h=new Date().getHours(),g=h<12?'Good morning':h<18?'Good afternoon':'Good evening',n=(U&&U.user_metadata&&U.user_metadata.first_name)||'';return g+(n?', '+n:'')+'. Here is your money at a glance.'}
+function show(v){Object.keys(T).forEach(function(k){$('v-'+k).hidden=k!==v});document.querySelectorAll('.nav[data-v]').forEach(function(b){b.setAttribute('aria-current',b.dataset.v===v)});$('title').textContent=T[v][0];$('subtitle').textContent=v==='overview'&&U?greet():T[v][1]}
 document.querySelectorAll('.nav[data-v]').forEach(function(b){b.onclick=function(){show(b.dataset.v)}});
 $('catSel').innerHTML=Object.keys(CATS).map(function(c){return '<option>'+c+'</option>'}).join('');
 $('txForm').date.value=now.toISOString().slice(0,10);
@@ -473,12 +608,62 @@ $('goalList').onclick=async function(e){var id=e.target.dataset.rm;if(!id)return
   var r=await sb.from('goals').delete().eq('id',id);if(r.error)return alert(r.error.message);S.goals=S.goals.filter(function(x){return String(x.id)!==id});renderAll()};
 ['cIncome','cNeeds','cWants','cSave'].forEach(function(i){$(i).oninput=renderCalc});
 
+/* ---------- settings ---------- */
+var sd=$('sd');
+function setMsg(id,t,err){var m=$(id);m.textContent=t||'';m.className='sm'+(t?(err?' err':' ok'):'')}
+function meta(){return (U&&U.user_metadata)||{}}
+function paintUser(){var m=meta(),fn=m.first_name||'',ln=m.last_name||'',ini=((fn[0]||'')+(ln[0]||'')||U.email[0]).toUpperCase();
+  $('who').textContent=(fn?fn+' · ':'')+U.email;$('av').textContent=ini;$('avBig').textContent=ini;$('pName').textContent=(fn+' '+ln).trim()||'Your account';$('pMail').textContent=U.email;
+  $('pSince').textContent='Member since '+new Date(U.created_at).toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+  if(!$('v-overview').hidden)$('subtitle').textContent=greet()}
+function applyCur(){$('txForm').amt.placeholder='Amount ('+CUR+')';$('goalForm').target.placeholder='Target ('+CUR+')';$('v-budget').querySelector('label').firstChild.textContent='Monthly take-home pay ('+CUR+')'}
+function applyPrefs(){var p=meta().prefs||{};CUR=p.cur||'£';LIM=+p.limit||0;document.body.classList.toggle('hide-amt',!!p.hide);$('appbg').classList.toggle('still',p.anim===false);applyCur()}
+function fillSet(){var m=meta(),p=m.prefs||{};$('sFn').value=m.first_name||'';$('sLn').value=m.last_name||'';$('sEm').value='';$('sTheme').value=root.getAttribute('data-theme');$('sCur').value=p.cur||'£';$('sLim').value=p.limit||'';$('sHide').checked=!!p.hide;$('sAnim').checked=p.anim!==false;
+  ['sPw','sPw2','delConf'].forEach(function(i){$(i).value=''});['pMsg','secMsg','prMsg','dtMsg'].forEach(function(i){setMsg(i,'')})}
+function openSet(){if(!U)return;fillSet();sd.classList.add('open');$('sdBack').classList.add('show');loadMfa();setTimeout(function(){$('sdX').focus()},350)}
+function closeSet(){sd.classList.remove('open');$('sdBack').classList.remove('show')}
+$('setBtn').onclick=openSet;$('av').onclick=openSet;$('sdX').onclick=closeSet;$('sdBack').onclick=closeSet;
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSet()});
+document.querySelectorAll('.sd-tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.sd-tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});document.querySelectorAll('.sd-body section').forEach(function(p){p.hidden=p.dataset.p!==b.dataset.t})}});
+$('fProfile').onsubmit=async function(e){e.preventDefault();var fn=$('sFn').value.trim(),ln=$('sLn').value.trim();
+  if(window.ssDirty(fn+' '+ln))return window.ssWarn();setMsg('pMsg','Saving…');
+  try{var r=await withTimeout(sb.auth.updateUser({data:{first_name:fn,last_name:ln}}),30000);if(r.error)return setMsg('pMsg',r.error.message,1);U=r.data.user;paintUser();setMsg('pMsg','Name saved.')}catch(err){setMsg('pMsg',err.message,1)}};
+$('fEmail2').onsubmit=async function(e){e.preventDefault();setMsg('pMsg','Sending…');
+  try{var r=await withTimeout(sb.auth.updateUser({email:$('sEm').value.trim()},{emailRedirectTo:location.origin}),30000);if(r.error)return setMsg('pMsg',r.error.message,1);setMsg('pMsg','Check both inboxes and confirm the links to finish changing your email.');$('sEm').value=''}catch(err){setMsg('pMsg',err.message,1)}};
+$('fPw').onsubmit=async function(e){e.preventDefault();var a=$('sPw').value,b=$('sPw2').value;
+  if(a.length<8)return setMsg('secMsg','Use at least 8 characters.',1);if(a!==b)return setMsg('secMsg','The two passwords do not match.',1);setMsg('secMsg','Saving…');
+  try{var r=await withTimeout(sb.auth.updateUser({password:a}),30000);if(r.error)return setMsg('secMsg',r.error.message,1);$('sPw').value='';$('sPw2').value='';setMsg('secMsg','Password updated.')}catch(err){setMsg('secMsg',err.message,1)}};
+$('outAll').onclick=function(){sb.auth.signOut({scope:'global'})};
+$('sdOut').onclick=function(){sb.auth.signOut()};
+$('savePrefs').onclick=async function(){setTheme($('sTheme').value);var lim=Math.max(0,+$('sLim').value||0);setMsg('prMsg','Saving…');
+  try{var r=await withTimeout(sb.auth.updateUser({data:{prefs:{cur:$('sCur').value,limit:lim,hide:$('sHide').checked,anim:$('sAnim').checked}}}),30000);if(r.error)return setMsg('prMsg',r.error.message,1);U=r.data.user;applyPrefs();renderAll();setMsg('prMsg','Preferences saved.')}catch(err){setMsg('prMsg',err.message,1)}};
+$('exp').onclick=function(){function q(v){v=String(v);if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'}
+  var rows=[['date','description','category','type','amount']].concat(S.tx.map(function(t){return [t.date,t.description,t.cat,t.type==='inc'?'income':'expense',t.amt]}));
+  var blob=new Blob([rows.map(function(r){return r.map(q).join(',')}).join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='spendsmart-transactions.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);setMsg('dtMsg','Download started.')};
+$('delData').onclick=async function(){if($('delConf').value.trim()!=='DELETE')return setMsg('dtMsg','Type DELETE in the box first.',1);setMsg('dtMsg','Deleting…');
+  try{var a=await sb.from('transactions').delete().not('id','is',null),b=await sb.from('goals').delete().not('id','is',null);if(a.error||b.error)return setMsg('dtMsg',(a.error||b.error).message,1);S.tx=[];S.goals=[];renderAll();$('delConf').value='';setMsg('dtMsg','All your transactions and goals were deleted.')}catch(err){setMsg('dtMsg',err.message,1)}};
+/* 2FA */
+async function loadMfa(){var b=$('mfaBody');b.textContent='Loading…';
+  try{var r=await sb.auth.mfa.listFactors();if(r.error){b.textContent=r.error.message;return}var on=(r.data.totp||[])[0];b.innerHTML='';
+    if(on){var p=document.createElement('p');p.className='sm ok';p.textContent='2FA is on. You will be asked for a code from your authenticator app when you log in.';var bt=document.createElement('button');bt.type='button';bt.className='btn alt';bt.textContent='Turn off 2FA';
+      bt.onclick=async function(){var u=await sb.auth.mfa.unenroll({factorId:on.id});if(u.error)setMsg('secMsg',u.error.message,1);else{setMsg('secMsg','2FA turned off.');loadMfa()}};b.appendChild(p);b.appendChild(bt)}
+    else{var bt2=document.createElement('button');bt2.type='button';bt2.className='btn';bt2.textContent='Turn on 2FA';bt2.onclick=startMfa;b.appendChild(bt2)}
+  }catch(err){b.textContent=err.message}}
+async function startMfa(){var b=$('mfaBody');
+  try{var all=await sb.auth.mfa.listFactors(),old=(all.data&&all.data.all||[]).filter(function(f){return f.status==='unverified'});for(var i=0;i<old.length;i++)await sb.auth.mfa.unenroll({factorId:old[i].id});
+    var e=await sb.auth.mfa.enroll({factorType:'totp',friendlyName:'SpendSmart '+Date.now()});if(e.error)return setMsg('secMsg',e.error.message,1);
+    b.innerHTML='';var img=new Image();img.className='qr';img.alt='QR code to scan with your authenticator app';img.src=e.data.totp.qr_code;b.appendChild(img);
+    var h=document.createElement('p');h.className='hint';h.textContent="Scan this with your authenticator app. Can't scan? Enter this key instead: ";var c=document.createElement('code');c.textContent=e.data.totp.secret;h.appendChild(c);b.appendChild(h);
+    var inp=document.createElement('input');inp.inputMode='numeric';inp.maxLength=6;inp.placeholder='6-digit code';inp.setAttribute('aria-label','6-digit code');var go=document.createElement('button');go.type='button';go.className='btn';go.textContent='Verify and turn on';
+    go.onclick=async function(){var ch=await sb.auth.mfa.challenge({factorId:e.data.id});if(ch.error)return setMsg('secMsg',ch.error.message,1);var v=await sb.auth.mfa.verify({factorId:e.data.id,challengeId:ch.data.id,code:inp.value.replace(/\D/g,'')});if(v.error)return setMsg('secMsg','That code did not work. Try the newest one.',1);setMsg('secMsg','2FA is now on.');loadMfa()};
+    b.appendChild(inp);b.appendChild(go);setMsg('secMsg','')}catch(err){setMsg('secMsg',err.message,1)}}
+
 /* ---------- start ---------- */
 if(SUPABASE_URL.indexOf('PASTE')===0||!window.supabase){showAuth();msg('Setup needed: add your Supabase URL and key at the top of the script in index.html.',1)}
 else{
   sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{lock:function(n,t,f){return f()}}});
   sb.auth.onAuthStateChange(function(ev){if(ev==='SIGNED_OUT')showAuth()});
-  sb.auth.getSession().then(function(r){r.data.session?enter(r.data.session.user):showAuth()});
+  sb.auth.getSession().then(function(r){r.data.session?afterLogin(r.data.session.user):showAuth()});
 }
 })();
 </script>
