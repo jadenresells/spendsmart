@@ -2,7 +2,7 @@
 <html lang="en" class="auth-on">
 <head>
 <meta charset="utf-8">
-<meta name="theme-color" content="#050a07">
+<meta name="theme-color" content="#0a2e1b">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SpendSmart</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%221%22 x2=%221%22 y2=%220%22%3E%3Cstop offset=%220%22 stop-color=%22%2316a34a%22/%3E%3Cstop offset=%221%22 stop-color=%22%2386efac%22/%3E%3C/linearGradient%3E%3Cmask id=%22gm%22 maskUnits=%22userSpaceOnUse%22 x=%220%22 y=%220%22 width=%2248%22 height=%2248%22%3E%3Crect width=%2248%22 height=%2248%22 fill=%22%23fff%22/%3E%3Cpolygon points=%2224,11.3 36.2,18.1 36.2,31.9 24,38.7 11.8,31.9 11.8,18.1%22 fill=%22%23000%22/%3E%3C/mask%3E%3C/defs%3E%3Cg mask=%22url%28%23gm%29%22%3E%3Cpath d=%22M5 41L16 30L22 35L37 13%22 fill=%22none%22 stroke=%22url%28%23g%29%22 stroke-width=%223.2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2240.5,8 39.6,15.3 34,11.5%22 fill=%22url%28%23g%29%22 stroke=%22url%28%23g%29%22 stroke-width=%221.2%22 stroke-linejoin=%22round%22/%3E%3C/g%3E%3Cpolygon points=%2224,12.5 35,18.75 35,31.25 24,37.5 13,31.25 13,18.75%22 fill=%22rgba%2834,197,94,.14%29%22 stroke=%22url%28%23g%29%22 stroke-width=%222.6%22 stroke-linejoin=%22round%22/%3E%3Ctext x=%2224%22 y=%2228.4%22 text-anchor=%22middle%22 font-family=%22Sora,Plus Jakarta Sans,Arial,sans-serif%22 font-weight=%22800%22 font-size=%2211%22 fill=%22%234ade80%22%3ESS%3C/text%3E%3Ccircle cx=%2238%22 cy=%2234%22 r=%225%22 fill=%22url%28%23g%29%22/%3E%3Ctext x=%2238%22 y=%2236.6%22 text-anchor=%22middle%22 font-family=%22Arial,sans-serif%22 font-weight=%22800%22 font-size=%227.5%22 fill=%22%23052e16%22%3E%24%3C/text%3E%3C/svg%3E">
@@ -11,7 +11,7 @@
 :root{--bg:#070d0a;--card:#0f1a14;--card2:#16251c;--ink:#eefaf2;--mute:#8fb3a0;--line:#1f3a2b;--p:#22c55e;--pk:#86efac;--good:#4ade80;--bad:#fb7185;--grad:linear-gradient(135deg,#15803d,#22c55e);color-scheme:dark}
 :root[data-theme="light"]{--bg:#eefaf2;--card:#fff;--card2:#f1faf4;--ink:#0c2217;--mute:#587a68;--line:#d6ecde;--good:#14966a;--bad:#d63d57;color-scheme:light}
 *{box-sizing:border-box}
-html{background:var(--bg);overscroll-behavior-y:none}html.auth-on,html.auth-on body{background:#050a07}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{background:var(--bg);overscroll-behavior-y:none}html.auth-on,html.auth-on body{background:#0a2e1b}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:500 14px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;min-height:100dvh;overflow-x:clip}
 h1,h2,.brand,.big{font-family:Sora,"Plus Jakarta Sans",system-ui,sans-serif}
 button,input,select{font:inherit;color:inherit}
@@ -20,16 +20,18 @@ button,input,select{font:inherit;color:inherit}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
 [hidden]{display:none!important}
 /* auth */
-#auth{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:calc(96px + env(safe-area-inset-top,0px)) 20px calc(40px + env(safe-area-inset-bottom,0px));position:relative;overflow:hidden;background:#050a07}
-#auth::before{content:"";position:absolute;inset:-20%;filter:blur(36px);background:
+#auth{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:calc(96px + env(safe-area-inset-top,0px)) 20px calc(40px + env(safe-area-inset-bottom,0px));position:relative;z-index:1}
+.authbg{position:fixed;left:0;right:0;top:-240px;bottom:-240px;z-index:0;overflow:hidden;pointer-events:none;background:#06180e}
+html:not(.auth-on) .authbg{display:none}
+.authbg::before{content:"";position:absolute;inset:-20%;filter:blur(36px);background:
 radial-gradient(40% 40% at 20% 22%,rgba(34,197,94,.70),transparent 70%),
 radial-gradient(35% 35% at 82% 18%,rgba(20,184,166,.50),transparent 70%),
 radial-gradient(45% 45% at 72% 82%,rgba(132,204,22,.32),transparent 70%),
 radial-gradient(35% 35% at 12% 84%,rgba(16,185,129,.45),transparent 70%);animation:drift 20s ease-in-out infinite alternate}
-#auth::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(45deg,transparent 48.5%,rgba(110,231,150,.16) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgba(110,231,150,.16) 49.5% 50.5%,transparent 51.5%);background-size:64px 64px;animation:slide 14s linear infinite;-webkit-mask-image:radial-gradient(85% 85% at 50% 40%,#000 20%,transparent);mask-image:radial-gradient(85% 85% at 50% 40%,#000 20%,transparent)}
+.authbg::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(45deg,transparent 48.5%,rgba(110,231,150,.16) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgba(110,231,150,.16) 49.5% 50.5%,transparent 51.5%);background-size:64px 64px;animation:slide 14s linear infinite;-webkit-mask-image:radial-gradient(85% 85% at 50% 40%,#000 20%,transparent);mask-image:radial-gradient(85% 85% at 50% 40%,#000 20%,transparent)}
 @keyframes drift{to{transform:translate3d(3%,-4%,0) scale(1.08) rotate(3deg)}}
 @keyframes slide{to{background-position:64px 64px}}
-@media(prefers-reduced-motion:reduce){#auth::before,#auth::after{animation:none}}
+@media(prefers-reduced-motion:reduce){.authbg::before,.authbg::after{animation:none}}
 .corner{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));left:22px;color:#fff;z-index:2}
 .acard{position:relative;z-index:1;width:100%;max-width:400px;padding:36px 28px 28px;color:#fff;text-align:center;border-radius:28px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(22px) saturate(140%);backdrop-filter:blur(22px) saturate(140%);box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .acard h1{font-size:34px;margin:0 0 8px;font-weight:800;color:#f4f1cf}
@@ -60,7 +62,7 @@ input,select{background:var(--card2);border:1px solid var(--line);border-radius:
 .arr.prev{left:-62px}.arr.next{right:-62px}.arr.off{opacity:0;visibility:hidden;pointer-events:none}
 .cdots{display:flex;justify-content:center;gap:8px;position:relative;z-index:1;margin-top:-8px;padding-bottom:30px}.cdots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s}.cdots i.on{background:#4ade80;width:22px;border-radius:8px}
 @media(hover:none),(pointer:coarse),(max-width:560px){.car{width:min(380px,100%)}.arr{width:38px;height:38px;background:rgba(0,0,0,.5)}.arr svg{width:18px;height:18px}.arr.prev{left:8px}.arr.next{right:8px}.arr:hover{transform:translateY(-50%)}}
-.divider{position:relative;z-index:1;width:min(86%,820px);height:2px;border-radius:2px;background:rgba(255,255,255,.32);box-shadow:0 0 0 1px rgba(255,255,255,.07);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.divider{position:relative;z-index:1;width:min(90%,1100px);height:2px;border-radius:2px;background:rgba(255,255,255,.32);box-shadow:0 0 0 1px rgba(255,255,255,.07);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .fc{position:relative;flex:0 0 100%;min-width:0;min-height:410px;border-radius:28px;overflow:hidden;background:radial-gradient(120% 70% at 85% 100%,rgba(34,197,94,.45),transparent 60%),linear-gradient(180deg,#131715,#090c0a);border:1px solid rgba(255,255,255,.12);padding:24px 16px 74px;color:#fff;text-align:center}
 .fc h3{font-family:Sora,sans-serif;font-size:21px;line-height:1.2;color:#f4f1cf;margin:0 0 18px}.fc h3 b{color:#4ade80}
 .fc .note{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;font-size:11px;line-height:1.35;background:rgba(120,140,125,.35);color:#e8efe9;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
@@ -114,7 +116,7 @@ th,td{text-align:right;padding:10px 6px;border-top:1px solid var(--line)}th:firs
 #ai-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
 .ai-h{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1);font:700 15px Sora,sans-serif}.ai-h span{flex:1}.ai-h button{background:none;border:0;color:#9cc9ac;cursor:pointer;font-size:20px;line-height:1}
 .ai-b{flex:1;overflow-y:auto;padding:14px;scroll-behavior:smooth}
-.m{max-width:88%;padding:10px 13px;border-radius:16px;margin-bottom:10px;white-space:pre-line;line-height:1.45;font-size:14px;animation:pop .32s ease both}
+.m{width:fit-content;max-width:88%;padding:10px 13px;border-radius:16px;margin-bottom:10px;white-space:pre-line;line-height:1.45;font-size:14px;animation:pop .32s ease both}
 .m.bot{background:#16251c;border-top-left-radius:6px}.m.me{background:linear-gradient(135deg,#16a34a,#22c55e);color:#04210f;margin-left:auto;border-top-right-radius:6px;font-weight:600}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 10px}.chips button{border:1px solid rgba(74,222,128,.55);background:rgba(74,222,128,.08);color:#d9f7e3;border-radius:999px;padding:8px 13px;font:600 13px "Plus Jakarta Sans",sans-serif;cursor:pointer;animation:pop .4s ease both;animation-delay:calc(var(--i)*100ms);transition:background .2s}.chips button:hover{background:rgba(74,222,128,.22)}
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
@@ -197,10 +199,19 @@ code{background:var(--card2);padding:2px 6px;border-radius:6px;word-break:break-
  #ai-fab{bottom:calc(96px + env(safe-area-inset-bottom,0px))}#ai-panel{bottom:calc(168px + env(safe-area-inset-bottom,0px))}
  h1{font-size:24px}
 }
+
+@media(min-width:1100px){
+ .acard{zoom:1.3}.car{zoom:1.3}.corner{zoom:1.25}
+ .divider{width:min(92%,1280px);height:3px}
+ #auth{gap:46px}
+}
+@media(min-width:1400px){.app{zoom:1.12}.sd{zoom:1.1}}
+@media(min-width:1750px){.app{zoom:1.25}.sd{zoom:1.15}}
 </style>
 </head>
 <body>
 
+<div class="authbg" id="authbg" aria-hidden="true"></div>
 <div id="auth" hidden>
  <div class="brand corner"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#86efac"/></linearGradient><mask id="lgm" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><polygon points="24,11.3 36.2,18.1 36.2,31.9 24,38.7 11.8,31.9 11.8,18.1" fill="#000"/></mask></defs><g mask="url(#lgm)"><path d="M5 41L16 30L22 35L37 13" fill="none" stroke="url(#lg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="40.5,8 39.6,15.3 34,11.5" fill="url(#lg)" stroke="url(#lg)" stroke-width="1.2" stroke-linejoin="round"/></g><polygon points="24,12.5 35,18.75 35,31.25 24,37.5 13,31.25 13,18.75" fill="rgba(34,197,94,.14)" stroke="url(#lg)" stroke-width="2.6" stroke-linejoin="round"/><text x="24" y="28.4" text-anchor="middle" font-family="Sora,Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="11" fill="currentColor">SS</text><circle cx="38" cy="34" r="5" fill="url(#lg)"/><text x="38" y="36.6" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7.5" fill="#052e16">$</text></svg>SpendSmart</div>
  <div class="acard">
@@ -449,7 +460,8 @@ $('theme').onclick=function(){setTheme(root.getAttribute('data-theme')==='dark'?
 function withTimeout(p,ms){return Promise.race([p,new Promise(function(_,rej){setTimeout(function(){rej(new Error('timeout'))},ms)})])}
 function fail(e){msg(e&&e.message==='timeout'?'This is taking too long. Check your connection and try again.':'Something went wrong: '+((e&&e.message)||e),1)}
 function step(id){['stepAuth','stepForgot','stepReset','stepVerify','stepMfa'].forEach(function(k){$(k).hidden=k!==id});msg('')}
-function showAuth(){U=null;document.documentElement.classList.add('auth-on');$('appbg').hidden=true;$('app').hidden=true;$('auth').hidden=false;closeSet();step('stepAuth')}
+function themeBar(c){var m=document.querySelector('meta[name=theme-color]');if(m)m.content=c}
+function showAuth(){themeBar('#0a2e1b');U=null;document.documentElement.classList.add('auth-on');$('appbg').hidden=true;$('app').hidden=true;$('auth').hidden=false;closeSet();step('stepAuth')}
 async function mfaFactorNeeded(){var a=await sb.auth.mfa.getAuthenticatorAssuranceLevel();if(a.data&&a.data.nextLevel==='aal2'&&a.data.currentLevel!=='aal2'){var f=await sb.auth.mfa.listFactors();var t=f.data&&f.data.totp&&f.data.totp[0];return t?t.id:null}return null}
 async function afterLogin(u){var f=await mfaFactorNeeded();if(f){mfaId=f;document.documentElement.classList.add('auth-on');$('app').hidden=true;$('auth').hidden=false;step('stepMfa');$('mCode').value='';$('mCode').focus();return}enter(u)}
 function showVerify(){step('stepVerify');$('vText').textContent='We sent a code to '+pending+'. Enter it to finish creating your account.';$('code').value='';$('code').focus()}
@@ -520,7 +532,7 @@ $('logout').onclick=function(){sb.auth.signOut()};
 
 /* ---------- data ---------- */
 async function enter(user){
-  U=user;paintUser();applyPrefs();
+  themeBar('#070d0a');U=user;paintUser();applyPrefs();
   var a=await Promise.all([sb.from('transactions').select('*').order('date',{ascending:false}),sb.from('goals').select('*').order('created_at')]);
   S.tx=(a[0].data||[]).map(function(t){t.amt=Number(t.amt);return t});
   S.goals=(a[1].data||[]).map(function(g){g.target=Number(g.target);g.saved=Number(g.saved);return g});
